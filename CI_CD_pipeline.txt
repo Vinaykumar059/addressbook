@@ -3,17 +3,17 @@ agent any
 stages {
 stage ('build') {
 steps {
-git URL
+https://github.com/Vinaykumar059/addressbook.git
 }
 }
 stage ('deploy') {
 steps {
-Link
+sh 'mvn compile'
 }
 }
 stage ('test') {
 steps {
-Link
+ sh 'mvn test'
 }
 }
 }
