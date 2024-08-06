@@ -6,7 +6,7 @@ pipeline {
                 git 'https://github.com/Vinaykumar059/addressbook.git'
             }
         }
-        stage('Deploy') {
+        stage('compile') {
             steps {
                 sh 'mvn compile'
             }
@@ -16,5 +16,11 @@ pipeline {
                 sh 'mvn test'
             }
         }
+         stage('Deploy') {
+            steps {
+                deploy adapters: [tomcat9(url: 'http://172.31.33.12:8080',
+                            credentialsId: 'tomcat-tomcat')],
+                        war: 'target/*.war',
+                        contextPath: 'app1'
     }
 }
