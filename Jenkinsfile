@@ -23,3 +23,5 @@ pipeline {
                     contextPath: 'webapp', war: '**/*.war'
     }
 }
+    }
+}
