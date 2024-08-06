@@ -1,19 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Compile') {
-            steps { 
+        stage('Build') {
+        steps {
+                git 'https://github.com/Vinaykumar059/addressbook.git'
+            }
+        }
+        stage('Deploy') {
+            steps {
                 sh 'mvn compile'
             }
         }
         stage('test') {
-            steps { 
+            steps {
                 sh 'mvn test'
-            }
-        }
-        stage('package') {
-            steps { 
-                sh 'mvn package'
             }
         }
     }
